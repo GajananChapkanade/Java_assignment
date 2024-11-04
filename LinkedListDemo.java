@@ -2,73 +2,73 @@ package program;
 
 class Node {
     int data;
-    Node next; // Each node points to the next node in the list
+    Node next; 
 }
 
 class LinkedList {
-    Node head; // Head points to the first node in the list
+    Node head; 
 
-    // Insert at end
+  
     public void insert(int data) {
         Node node = new Node();
         node.data = data;
         node.next = null;
 
         if (head == null) {
-            head = node; // If list is empty, head points to the new node
+            head = node; 
         } else {
             Node n = head;
             while (n.next != null) {
-                n = n.next; // Traverse to the last node
+                n = n.next; 
             }
-            n.next = node; // Link the last node to the new node
+            n.next = node; 
         }
     }
 
-    // Insert at start
+   
     public void insertAtStart(int data) {
         Node node = new Node();
         node.data = data;
-        node.next = head; // Point new node to the current head
-        head = node; // Update head to new node
+        node.next = head; 
+        head = node; 
     }
 
-    // Insert at a specific position
+   
     public void insertAt(int index, int data) {
         Node node = new Node();
         node.data = data;
 
         if (index == 0) {
-            insertAtStart(data); // If index is 0, insert at the start
+            insertAtStart(data); 
         } else {
             Node n = head;
             for (int i = 0; i < index - 1; i++) {
-                n = n.next; // Traverse to the (index-1)th node
+                n = n.next; 
             }
-            node.next = n.next; // Point new node to the next node in sequence
-            n.next = node; // Link (index-1)th node to new node
+            node.next = n.next; 
+            n.next = node; 
         }
     }
 
-    // Delete at a specific position
+
     public void deleteAt(int index) {
         if (index == 0) {
-            head = head.next; // If deleting the head, move head to the next node
+            head = head.next; 
         } else {
             Node n = head;
             for (int i = 0; i < index - 1; i++) {
-                n = n.next; // Traverse to the (index-1)th node
+                n = n.next; 
             }
-            Node n1 = n.next; // Node to be deleted
-            n.next = n1.next; // Bypass the node to be deleted
-            n1 = null; // Optional: help garbage collection
+            Node n1 = n.next; 
+            n.next = n1.next; 
+            n1 = null; 
         }
     }
 
-    // Display the list
+ 
     public void show() {
         Node node = head;
-        while (node != null) { // Traverse the list and print each node's data
+        while (node != null) { 
             System.out.println(node.data);
             node = node.next;
         }
